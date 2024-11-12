@@ -343,39 +343,21 @@ public class JeeStudyTrackerApp extends JFrame {
                                         "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    // private int calculateHealthScore(double sleep, int nutrition, int exercise, int meditation, int caffeine) {
-    //     int sleepScore = 20 - (int)(Math.abs(8 - sleep) * 2.5);
-    //     sleepScore = Math.max(0, sleepScore);
     
-    //     int nutritionScore = 20 - (int)(Math.abs(3000 - nutrition) / 100.0);
-    //     nutritionScore = Math.max(0, nutritionScore);
-    
-    //     int exerciseScore = Math.min(20, exercise * 2);
-    //     int meditationScore = Math.min(20, meditation * 2);
-    //     int caffeineScore = Math.max(0, 20 - (int)(caffeine / 5.0));
-    
-    //     int totalScore = sleepScore + nutritionScore + exerciseScore + meditationScore + caffeineScore;
-    //     return totalScore ; 
-    // }
     private static int calculateHealthScore(double sleep, int nutrition, int exercise, int meditation, int caffeine) {
-        // Sleep: Out of 20
+
         int sleepScore = 20 - (int)(Math.abs(8 - sleep) * 2.5);
         sleepScore = Math.max(0, sleepScore);
 
-        // Nutrition: Out of 20
         int nutritionScore = 20 - (int)(Math.abs(2800 - nutrition) / 50.0);
         nutritionScore = Math.max(0, nutritionScore);
 
-        // Exercise: Out of 20 (1 point per 10 minutes, capped at 20)
         int exerciseScore = Math.min(20, 2*(exercise / 10));
 
-        // Meditation/Yoga: Out of 20 (1 point per 10 minutes, capped at 20)
         int meditationScore = Math.min(20, 2*(meditation / 10));
 
-        // Caffeine: Out of 20 (Less caffeine means higher score)
         int caffeineScore = Math.max(0, 20 - (int)(caffeine / 5.0));
 
-        // Total Health Score
         int totalScore = sleepScore + nutritionScore + exerciseScore + meditationScore + caffeineScore;
         return totalScore;
     }
